@@ -3,7 +3,6 @@ library magnetfruit_entity;
 import 'dart:mirrors';
 
 part 'column.dart';
-part 'http_method.dart';
 part 'referential_action.dart';
 part 'table.dart';
 

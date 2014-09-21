@@ -1,5 +1,5 @@
 name: magnetfruit_entity
-version: '0.1.0'
+version: 0.1.1
 description: 'Entity definition. Used by various magnetfruit programs.'
 author: Zyrthofar <zyrthofar@magnetfruit.com>
-homepage: 'www.magnetfruit.com/entity/'
+homepage: 'http://www.magnetfruit.com/entity/'

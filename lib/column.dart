@@ -4,8 +4,8 @@ class Column {
   final String name;
   final bool isPrimaryKey;
 
-  final bool isForeignKey;
-  final String idName;
+  final bool isManyToOneForeignKey;
+  final bool isOneToManyForeignKey;
   final String targetName;
   final int onUpdate;
   final int onDelete;
@@ -15,9 +15,9 @@ class Column {
   const Column.PrimaryKey(this.name)
     : isPrimaryKey = true;
 
-  const Column.ManyToOneForeignKey(this.idName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
-    : isForeignKey = true;
+  const Column.ManyToOneForeignKey(this.targetName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
+    : isManyToOneForeignKey = true;
 
   const Column.OneToManyForeignKey(this.targetName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
-    : isForeignKey = true;
+    : isOneToManyForeignKey = true;
 }
