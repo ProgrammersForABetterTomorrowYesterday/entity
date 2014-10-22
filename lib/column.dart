@@ -24,7 +24,13 @@ class Column {
   final String targetName;
 
   /// Target junction table name of a foreign key column.
-  final String targetTableName;
+  final String junctionTableName;
+
+  /// Target column name of the current entity for a many-to-many foreign key.
+  final String targetColumnName;
+
+  /// Target column name of the other entity for a many-to-many foreign key.
+  final String otherColumnName;
 
   /// How the foreign key should behave when the entity is created or updated.
   final int onUpdate;
@@ -48,7 +54,7 @@ class Column {
     : isOneToManyForeignKey = true;
 
   /// Represents a many-to-many foreign key. This targets a junction table for a list of entity.
-  const Column.ManyToManyForeignKey(this.targetName, this.targetTableName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
+  const Column.ManyToManyForeignKey(this.junctionTableName, this.targetColumnName, this.otherColumnName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
     : isManyToManyForeignKey = true;
 
 }
