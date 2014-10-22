@@ -1,5 +1,8 @@
 name: magnetfruit_entity
-version: 0.1.2
+version: 0.1.3
 description: 'Domain model definition. Used by various magnetfruit programs.'
 author: Zyrthofar <zyrthofar@magnetfruit.com>
 homepage: 'http://www.magnetfruit.com/entity/'
+dependencies:
+  magnetfruit_avocadorm: ">=0.1.0 <0.2.0"
+
