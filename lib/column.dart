@@ -39,22 +39,23 @@ class Column {
   final int onDelete;
 
   /// Represents a simple column that is not a primary key.
-  const Column(this.name);
+  const Column(this.name)
+    : isPrimaryKey = false, isManyToOneForeignKey = false, isOneToManyForeignKey = false, isManyToManyForeignKey = false;
 
   /// Represents a primary key column that will uniquely define an entity. Only one such column can be in an entity.
   const Column.PrimaryKey(this.name)
-    : isPrimaryKey = true;
+    : isPrimaryKey = true, isManyToOneForeignKey = false, isOneToManyForeignKey = false, isManyToManyForeignKey = false;
 
   /// Represents a many-to-one foreign key. This targets another table for one entity.
   const Column.ManyToOneForeignKey(this.targetName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
-    : isManyToOneForeignKey = true;
+    : isPrimaryKey = false, isManyToOneForeignKey = true, isOneToManyForeignKey = false, isManyToManyForeignKey = false;
 
   /// Represents a one-to-many foreign key. This targets another table for a list of entity.
   const Column.OneToManyForeignKey(this.targetName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
-    : isOneToManyForeignKey = true;
+  : isPrimaryKey = false, isManyToOneForeignKey = false, isOneToManyForeignKey = true, isManyToManyForeignKey = false;
 
   /// Represents a many-to-many foreign key. This targets a junction table for a list of entity.
   const Column.ManyToManyForeignKey(this.junctionTableName, this.targetColumnName, this.otherColumnName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
-    : isManyToManyForeignKey = true;
+  : isPrimaryKey = false, isManyToOneForeignKey = false, isOneToManyForeignKey = false, isManyToManyForeignKey = true;
 
 }
