@@ -33,10 +33,10 @@ class Column {
   final String otherColumnName;
 
   /// How the foreign key should behave when the entity is created or updated.
-  final int onUpdate;
+  final bool recursiveSave;
 
   /// How the foreign key should behave when the entity is deleted.
-  final int onDelete;
+  final bool recursiveDelete;
 
   /// Represents a simple column that is not a primary key.
   const Column(this.name)
@@ -47,15 +47,15 @@ class Column {
     : isPrimaryKey = true, isManyToOneForeignKey = false, isOneToManyForeignKey = false, isManyToManyForeignKey = false;
 
   /// Represents a many-to-one foreign key. This targets another table for one entity.
-  const Column.ManyToOneForeignKey(this.targetName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
+  const Column.ManyToOneForeignKey(this.targetName, {this.recursiveSave: false, this.recursiveDelete: false})
     : isPrimaryKey = false, isManyToOneForeignKey = true, isOneToManyForeignKey = false, isManyToManyForeignKey = false;
 
   /// Represents a one-to-many foreign key. This targets another table for a list of entity.
-  const Column.OneToManyForeignKey(this.targetName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
+  const Column.OneToManyForeignKey(this.targetName, {this.recursiveSave: false, this.recursiveDelete: false})
   : isPrimaryKey = false, isManyToOneForeignKey = false, isOneToManyForeignKey = true, isManyToManyForeignKey = false;
 
   /// Represents a many-to-many foreign key. This targets a junction table for a list of entity.
-  const Column.ManyToManyForeignKey(this.junctionTableName, this.targetColumnName, this.otherColumnName, {this.onUpdate: ReferentialAction.RESTRICT, this.onDelete: ReferentialAction.RESTRICT})
+  const Column.ManyToManyForeignKey(this.junctionTableName, this.targetColumnName, this.otherColumnName, {this.recursiveSave: false, this.recursiveDelete: false})
   : isPrimaryKey = false, isManyToOneForeignKey = false, isOneToManyForeignKey = false, isManyToManyForeignKey = true;
 
 }

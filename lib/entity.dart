@@ -14,7 +14,6 @@ import 'dart:mirrors';
 import 'package:magnetfruit_avocadorm/avocadorm.dart';
 
 part 'column.dart';
-part 'referential_action.dart';
 part 'table.dart';
 
 /**
