@@ -4,5 +4,8 @@ description: 'Domain model definition. Used by various magnetfruit programs.'
 author: Zyrthofar <zyrthofar@magnetfruit.com>
 homepage: 'http://www.magnetfruit.com/entity/'
 dependencies:
-  magnetfruit_avocadorm: ">=0.1.0 <0.2.0"
+  magnetfruit_avocadorm:
+    git:
+      url: git://github.com/ProgrammersForABetterTomorrowYesterday/avocadorm.git
+      ref: development
 
